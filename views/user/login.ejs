@@ -1,5 +1,7 @@
 <html lang="en">
+  <%- include("../partials/head.ejs") %>
   <body>
+    <%- include("../partials/nav.ejs") %>
     <div>
       <% if (errorMessage) { %> <%= errorMessage %> <% } %>
       <form action="/login" method="POST">

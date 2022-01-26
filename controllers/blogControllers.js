@@ -1,5 +1,7 @@
 const allBlogs_get = (req, res) => {
-  res.render("blogs/allBlogs");
+  if (!req.userId) return res.redirect("/login");
+
+  res.render("blogs/allBlogs", { userId: req.userId });
 };
 
 module.exports = { allBlogs_get };

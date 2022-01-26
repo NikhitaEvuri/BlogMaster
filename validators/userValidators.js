@@ -5,6 +5,7 @@ const registerValidator = async (req, res, next) => {
     return res.render("user/register", {
       data: req.body,
       errorMessage: "Fill all the details !",
+      userId: null,
     });
   }
 
@@ -12,6 +13,7 @@ const registerValidator = async (req, res, next) => {
     return res.render("user/register", {
       data: req.body,
       errorMessage: "Password length should be greater or equal to 8 !",
+      userId: null,
     });
   }
 
@@ -19,6 +21,7 @@ const registerValidator = async (req, res, next) => {
     return res.render("user/register", {
       data: req.body,
       errorMessage: "Passwords do not match !",
+      userId: null,
     });
   }
 
@@ -32,6 +35,7 @@ const loginValidator = async (req, res, next) => {
     return res.render("user/login", {
       data: req.body,
       errorMessage: "Fill all the details !",
+      userId: null,
     });
   }
 

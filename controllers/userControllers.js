@@ -3,11 +3,13 @@ const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 
 const register_get = (req, res) => {
-  res.render("user/register", { errorMessage: null, data: {} });
+  if (req.userId) return res.redirect("/");
+  res.render("user/register", { errorMessage: null, data: {}, userId: null });
 };
 
 const login_get = (req, res) => {
-  res.render("user/login", { errorMessage: null, data: {} });
+  if (req.userId) return res.redirect("/");
+  res.render("user/login", { errorMessage: null, data: {}, userId: null });
 };
 
 const logout_get = (req, res) => {
@@ -29,6 +31,7 @@ const register_post = async (req, res) => {
     return res.render("user/register", {
       data: req.body,
       errorMessage: "Username already exists !",
+      userId: null,
     });
   }
 
@@ -38,6 +41,7 @@ const register_post = async (req, res) => {
     return res.render("user/register", {
       data: req.body,
       errorMessage: "Email already exists !",
+      userId: null,
     });
   }
 
@@ -69,6 +73,7 @@ const login_post = async (req, res) => {
     return res.render("user/login", {
       data: req.body,
       errorMessage: "Invalid Username !",
+      userId: null,
     });
   }
 
@@ -81,6 +86,7 @@ const login_post = async (req, res) => {
     return res.render("user/login", {
       data: req.body,
       errorMessage: "Invalid Password !",
+      userId: null,
     });
 
   const token = jwt.sign(
