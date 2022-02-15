@@ -29,6 +29,6 @@ mongoose
 
 app.listen(PORT, () => console.log(`Server is listening on Port ${PORT} !`));
 
-app.use("/", userRoutes);
-app.use("/", staticRoutes);
-app.use("/blogs", blogRoutes);
+app.use("/", auth, userRoutes);
+app.use("/", auth, staticRoutes);
+app.use("/blogs", auth, blogRoutes);

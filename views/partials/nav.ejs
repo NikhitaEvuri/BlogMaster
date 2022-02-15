@@ -1,58 +1,74 @@
-<nav class="navbar navbar-expand-md navbar-dark bg-dark px-3 px-lg-5">
-  <a class="navbar-brand" href="#">Blog Master</a>
-  <button
-    class="navbar-toggler"
-    type="button"
-    data-bs-toggle="collapse"
-    data-bs-target="#navbarTogglerDemo02"
-    aria-controls="navbarTogglerDemo02"
-    aria-expanded="false"
-    aria-label="Toggle navigation"
-  >
-    <span class="navbar-toggler-icon"></span>
-  </button>
+<nav class="navbar navbar-expand-md navbar-dark bg-dark">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <div>
+        <img src="/images/icon.png" class="me-2" width="40" height="100%" />
+        Blog Master
+      </div>
+    </a>
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarTogglerDemo02"
+      aria-controls="navbarTogglerDemo02"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
 
-  <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
-    <ul class="navbar-nav mt-2 mt-md-0 me-auto">
-      <li class="nav-item active">
-        <a class="nav-link" href="/">Home</a>
-      </li>
-      <% if (userId) { %>
-      <li class="nav-item">
-        <a class="nav-link" href="/blogs">All Blogs</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">My Blogs</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Bookmarks</a>
-      </li>
-      <% } else { %>
-      <li class="nav-item">
-        <a class="nav-link" href="/blogs">About</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Contact Us</a>
-      </li>
-      <% } %>
-    </ul>
+    <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+      <ul class="navbar-nav mt-2 mt-md-0 me-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="/">Home</a>
+        </li>
+        <% if (userId) { %>
+        <li class="nav-item">
+          <a class="nav-link" href="/blogs">Blogs</a>
+        </li>
+        <% } else { %>
+        <li class="nav-item">
+          <a class="nav-link" href="/about">About</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/contact">Contact Us</a>
+        </li>
+        <% } %>
+      </ul>
 
-    <ul class="navbar-nav">
-      <% if (userId) { %>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Profile</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="/logout">Logout</a>
-      </li>
-      <% } else { %>
-      <li class="nav-item">
-        <a class="nav-link" href="/register">Register</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="/login">Log In</a>
-      </li>
-      <% } %>
-    </ul>
+      <ul class="navbar-nav">
+        <% if (userId) { %>
+        <li class="nav-item">
+          <a class="nav-link" href="/blogs/myblogs">
+            <span class="bi-file-text" style="font-size: 24"></span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/blogs/mybookmarks">
+            <span class="bi-bookmarks" style="font-size: 24"></span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/blogs/create">
+            <span class="bi-pencil-square" style="font-size: 24"></span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Profile</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/logout">Logout</a>
+        </li>
+        <% } else { %>
+        <li class="nav-item">
+          <a class="nav-link" href="/register">Register</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/login">Log In</a>
+        </li>
+        <% } %>
+      </ul>
+    </div>
   </div>
 </nav>

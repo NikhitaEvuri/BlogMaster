@@ -1,0 +1,23 @@
+<html lang="en">
+  <%- include("../partials/head.ejs")%>
+  <body>
+    <%- include("../partials/nav.ejs")%>
+    <div>
+      <h2><%= blog.title %></h2>
+      <div>
+        <p><%= blog.body %></p>
+      </div>
+      <a class="delete" data-doc="<%= blog._id %>">
+        <span class="bi bi-trash-fill" style="font-size: 24"></span>
+      </a>
+    </div>
+  </body>
+  <script>
+    const trashcan = document.querySelector("a.delete");
+    trashcan.addEventListener("click", async (e) => {
+      const endpoint = `/blogs/${trashcan.dataset.doc}`;
+      await fetch(endpoint, { method: "DELETE" });
+      window.location.href = "/blogs";
+    });
+  </script>
+</html>

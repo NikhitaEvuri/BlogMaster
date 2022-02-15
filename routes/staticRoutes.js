@@ -2,8 +2,11 @@ const express = require("express");
 const router = express.Router();
 
 const staticController = require("../controllers/staticControllers");
-const auth = require("../middleware/auth");
 
-router.get("/", auth, staticController.home_get);
+router.get("/", staticController.home_get);
+
+router.get("/about", staticController.aboutUs_get);
+
+router.get("/contact", staticController.contactUs_get);
 
 module.exports = router;
