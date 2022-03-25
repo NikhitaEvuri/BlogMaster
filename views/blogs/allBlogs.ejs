@@ -3,11 +3,16 @@
   <body>
     <%- include("../partials/nav.ejs") %>
     <div>
-      <h2>All Blogs</h2>
+      <h2 class="col text-center">All Blogs</h2>
+
       <% if (blogs.length > 0) { %> <% blogs.forEach(blog => { %>
       <a href="/blogs/<%= blog._id%>">
-        <h3><%= blog.title %></h3>
-        <p><%= blog.description %></p>
+        <div class="card">
+          <div class="card-body">
+            <h3><%= blog.title %></h3>
+            <p><%= blog.description %></p>
+          </div>
+        </div>
       </a>
       <% }) %> <% } else {%>
       <p>There are no blogs to display.....</p>

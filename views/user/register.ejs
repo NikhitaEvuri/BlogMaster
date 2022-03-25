@@ -2,35 +2,78 @@
   <%- include("../partials/head.ejs") %>
   <body>
     <%- include("../partials/nav.ejs") %>
-    <div>
+    <div class="container">
       <% if (errorMessage) { %> <%= errorMessage %> <% } %>
       <form action="/register" method="POST">
-        <label for="username">Username : </label>
-        <input
-          type="text"
-          name="username"
-          value="<%= data.username %>"
-          required
-        />
-        <label for="Name">Name : </label>
-        <input type="text" name="name" value="<%= data.name %>" required />
-        <label for="email">Email : </label>
-        <input type="email" name="email" value="<%= data.email %>" required />
-        <label for="password">Password : </label>
-        <input
-          type="password"
-          name="password"
-          value="<%= data.password %>"
-          required
-        />
-        <label for="confirmPassword">Confirm Password : </label>
-        <input
-          type="password"
-          name="confirmPassword"
-          value="<%= data.confirmPassword %>"
-          required
-        />
-        <button>Submit</button>
+        <div class="mb-3">
+          <label for="username" class="form-label">Username</label>
+          <input
+            type="text"
+            name="username"
+            value="<%= data.username %>"
+            required
+            class="form-control"
+            id="exampleInputEmail1"
+          />
+        </div>
+        <div class="mb-3">
+          <label for="name" class="form-label">Name</label>
+          <input
+            type="text"
+            name="name"
+            value="<%= data.name %>"
+            required
+            class="form-control"
+            id="exampleInputEmail1"
+          />
+        </div>
+        <div class="mb-3">
+          <label for="email" class="form-label">Email</label>
+          <input
+            type="email"
+            name="email"
+            value="<%= data.email %>"
+            required
+            class="form-control"
+            id="exampleInputEmail1"
+            aria-describedby="emailHelp"
+          />
+          <div id="emailHelp" class="form-text">
+            We'll never share your email with anyone else.
+          </div>
+        </div>
+        <div class="mb-3">
+          <label for="password" class="form-label">Password</label>
+          <input
+            type="password"
+            name="password"
+            value="<%= data.password %>"
+            required
+            class="form-control"
+            id="exampleInputPassword1"
+          />
+        </div>
+        <div class="mb-3">
+          <label for="confirmpassword" class="form-label"
+            >Confirm Password</label
+          >
+          <input
+            type="password"
+            name="confirmpassword"
+            value="<%= data.confirmpassword %>"
+            required
+            class="form-control"
+            id="exampleInputPassword1"
+          />
+        </div>
+
+        <div class="mb-3 form-check">
+          <input type="checkbox" class="form-check-input" id="exampleCheck1" />
+          <label class="form-check-label" for="exampleCheck1"
+            >Check me out</label
+          >
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
       </form>
     </div>
   </body>
