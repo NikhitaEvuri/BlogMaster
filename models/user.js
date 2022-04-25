@@ -7,7 +7,6 @@ const userSchema = new Schema(
     passwordHash: { type: String, required: true },
     email: { type: String, required: true },
     name: { type: String, required: true },
-    bookmarks: { type: [String], default: [] },
   },
   { timestamps: { createdAt: true, updatedAt: false } }
 );

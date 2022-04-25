@@ -2,8 +2,74 @@
   <%- include("../partials/head.ejs") %>
   <body>
     <%- include("../partials/nav.ejs") %>
-    <div>
+
+    <div class="container my-4 px-3">
       <h2>My Bookmarks</h2>
+
+      <div class="row mt-4">
+        <% blogs.forEach(blog => { %> <% if (blog.bookmarks.includes(userId)) {
+        %>
+        <div class="col-md-12 col-lg-6 my-2">
+          <div class="card shadow px-2">
+            <div class="card-body">
+              <div
+                onclick="location.href='/blogs/<%= blog._id %>'"
+                style="cursor: pointer"
+              >
+                <div class="d-flex justify-content-between">
+                  <h3><%= blog.title %></h3>
+                  <p>- <%= blog.authorName %></p>
+                </div>
+                <span class="w-100 d-inline-block text-truncate"
+                  ><%= blog.description %></span
+                >
+              </div>
+              <div class="d-flex mt-3 align-items-start">
+                <form
+                  class="me-1"
+                  action="/blogs/<%= blog._id%>/like"
+                  method="post"
+                >
+                  <button
+                    type="submit"
+                    style="
+                      padding: 0;
+                      background: none;
+                      border: none;
+                      font-size: 18;
+                    "
+                  >
+                    <% if (blog.likes.includes(userId)) { %>
+                    <i class="bi-hand-thumbs-up-fill"></i>
+                    <% } else { %>
+                    <i class="bi-hand-thumbs-up"></i>
+                    <% } %>
+                  </button>
+                </form>
+                <span><%= blog.likes.length %> likes</span>
+                <form
+                  class="ms-auto"
+                  action="/blogs/<%= blog._id%>/bookmark"
+                  method="post"
+                >
+                  <button
+                    type="submit"
+                    style="
+                      padding: 0;
+                      background: none;
+                      border: none;
+                      font-size: 18;
+                    "
+                  >
+                    <i class="bi-bookmark-fill"></i>
+                  </button>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+        <% } %> <% }) %>
+      </div>
     </div>
   </body>
 </html>

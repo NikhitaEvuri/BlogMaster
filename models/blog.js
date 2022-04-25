@@ -9,6 +9,7 @@ const blogSchema = new Schema(
     author: { type: String, required: true },
     likes: { type: [String], default: [] },
     likesCount: { type: Number, default: 0 },
+    bookmarks: { type: [String], default: [] },
     lastEdited: { type: Date, default: new Date() },
   },
   { timestamps: { createdAt: true, updatedAt: false } }

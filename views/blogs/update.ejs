@@ -3,10 +3,10 @@
   <body>
     <%- include("../partials/nav.ejs") %>
     <div class="container my-4 px-3">
-      <h2>Create Blog</h2>
+      <h2>Update Blog</h2>
       <div class="row mt-4 justify-content-center">
         <div class="col-lg-8">
-          <form action="/blogs" method="POST">
+          <form action="/blogs/<%= blog._id %>/update" method="POST">
             <div class="form-group row">
               <label class="col-sm-2 col-form-label mb-2" for="title"
                 >Title</label
@@ -17,6 +17,7 @@
                   type="text"
                   id="title"
                   name="title"
+                  value="<%= blog.title %>"
                   required
                 />
               </div>
@@ -29,6 +30,7 @@
                   type="text"
                   id="description"
                   name="description"
+                  value="<%= blog.description %>"
                   required
                 />
               </div>
@@ -43,7 +45,9 @@
                   name="body"
                   rows="10"
                   required
-                ></textarea>
+                >
+<%= blog.body %></textarea
+                >
               </div>
             </div>
             <button type="submit" class="ms-auto mt-4 btn btn-success">
